@@ -31,7 +31,8 @@ install_haproxy() {
             cp "/etc/haproxy/haproxy.cfg" "/etc/haproxy/haproxy.cfg.bak"
             # Replace the original configuration file with the new one
             # Download the haproxy.cfg from GitHub and overwrite the original file
-            wget -O /etc/haproxy/haproxy.cfg https://raw.githubusercontent.com/Argo160/HaProxy_LoadBalancer/main/haproxy.cfg
+            wget -O /etc/haproxy/haproxy.cfg https://raw.githubusercontent.com/miladkomasi/HaProxy_LoadBalancer/main/haproxy.cfg
+            systemctl restart haproxy
             echo "HAProxy configuration file replaced successfully."
             echo "HAProxy installed successfully."
             read -n 1 -s -r -p "Press any key to continue"
@@ -383,7 +384,7 @@ restore_backup() {
 Reset_Config() {
         clear
         # Download the haproxy.cfg from GitHub and overwrite the original file
-        wget -O /etc/haproxy/haproxy.cfg https://raw.githubusercontent.com/Argo160/HaProxy_LoadBalancer/main/haproxy.cfg
+        wget -O /etc/haproxy/haproxy.cfg https://raw.githubusercontent.com/miladkomasi/HaProxy_LoadBalancer/main/haproxy.cfg
         echo -e "\e[32mThe Setting Restored to default\e[0m"
         echo "You need to specify ports and ip addresses"
         read -n 1 -s -r -p "Press any key to continue"
